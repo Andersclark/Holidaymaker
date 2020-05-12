@@ -1,18 +1,14 @@
 package io.andersclark.models;
 
-import io.andersclark.db.Column;
-
 public class Room {
-    @Column("id")
-    private final int id;
-    @Column("location")
-    private Location location;
-    @Column("beds")
+    private int id;
+    private int location;
     private int beds;
-    @Column("price")
     private int price;
 
-    public Room(int id, Location location, int beds, int price) {
+    public Room() {}
+
+    public Room(int id, int location, int beds, int price) {
         this.id = id;
         this.location = location;
         this.beds = beds;
@@ -23,11 +19,11 @@ public class Room {
         return id;
     }
 
-    public Location getLocation() {
+    public int getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 
@@ -45,5 +41,10 @@ public class Room {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return beds + "-bed room for " + price + " per night.";
     }
 }

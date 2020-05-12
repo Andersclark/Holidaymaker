@@ -1,18 +1,13 @@
 package io.andersclark.models;
 
-import io.andersclark.db.Column;
-
 public class Customer {
-    @Column("id")
-    private final int id;
-    @Column("firstname")
+    private int id;
     private String firstname;
-    @Column("lastname")
     private String lastname;
-    @Column("email")
     private String email;
-    @Column("phone")
     private String phone;
+
+    public Customer() {}
 
     public Customer(int id, String firstname, String lastname, String email, String phone) {
         this.id = id;
@@ -56,5 +51,15 @@ public class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

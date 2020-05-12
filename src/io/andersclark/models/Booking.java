@@ -1,21 +1,28 @@
 package io.andersclark.models;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
+
 
 public class Booking {
-    private final int id;
+    public static final LocalDate BOOKABLE_FROM = LocalDate.of(2020, 5, 31);
+    public static final LocalDate BOOKABLE_TO = LocalDate.of(2020, 8, 1);
+    private int id;
     private Date start_date;
     private Date end_date;
-    private Customer customer;
-    private Room room;
+    private int customer;
+    private int room;
 
-    public Booking(int id, Date start_date, Date end_date, Customer customer, Room room) {
+    public Booking() {}
+
+    public Booking(int id, Date start_date, Date end_date, Date booking_date, int customer, int room) {
         this.id = id;
         this.start_date = start_date;
         this.end_date = end_date;
         this.customer = customer;
         this.room = room;
     }
+
 
     public int getId() {
         return id;
@@ -37,19 +44,25 @@ public class Booking {
         this.end_date = end_date;
     }
 
-    public Customer getCustomer() {
+    public int getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(int customer) {
         this.customer = customer;
     }
 
-    public Room getRoom() {
+    public int getRoom() {
         return room;
     }
 
-    public void setRoom(Room room) {
+    public void setRoom(int room) {
         this.room = room;
+    }
+
+    @Override
+    public String toString() {
+        return id
+                + ": ROOM " + room + " booked from " + start_date.toLocalDate().toString() + " to " + end_date.toLocalDate().toString();
     }
 }

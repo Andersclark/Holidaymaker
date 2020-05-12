@@ -1,18 +1,13 @@
 package io.andersclark.models;
 
-import io.andersclark.db.Column;
-
 public class Location {
-    @Column("id")
-    private final int id;
-    @Column("location")
+    private int id;
     private String location;
-    @Column("pool")
     private boolean pool;
-    @Column("evening_entertainment")
     private boolean evening_entertainment;
-    @Column("daycare")
     private boolean daycare;
+
+    public Location() { }
 
     public Location(int id, String location, boolean pool, boolean evening_entertainment, boolean daycare) {
         this.id = id;
